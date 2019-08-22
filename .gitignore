@@ -106,6 +106,7 @@ venv.bak/
 # idea
 .idea
 
-# dataset and logs
+# dataset, logs and weights
 data/*
 main/*/graph
+weights/*

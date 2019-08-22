@@ -26,12 +26,12 @@ model.add(layers.Flatten())
 model.add(layers.Dense(4096, activation='relu', name='fc1'))
 model.add(layers.Dense(4096, activation='relu', name='fc2'))
 model.add(layers.Lambda(lambda x: backend.l2_normalize(x, axis=1)))
-model.add(layers.Dense(1680, activation='softmax', name='predictions', use_bias=False))
+model.add(layers.Dense(1048, activation='softmax', name='predictions', use_bias=False))
 
 model.summary()
 
-train_dir = "../../data/data_a3/train"
-validation_dir = "../,,/data/data_a3/validation"
+train_dir = "../../data/data_a3/cropped_train"
+validation_dir = "../../data/data_a3/cropped_validation"
 
 train_datagen = ImageDataGenerator(
     rescale=1. / 255,
@@ -100,4 +100,4 @@ history = model.fit_generator(
     callbacks=[loss_checkpointer, early_stopping, tensorboard_callback])
 
 # Save the model
-model.save('../weights/a3_model_50_epochs.h5')
+model.save('../../weights/a3_model_50_epochs.h5')

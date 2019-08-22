@@ -3,7 +3,7 @@ from keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard
 import tensorflow as tf
 from keras import models, layers, optimizers, backend
 from keras.preprocessing.image import ImageDataGenerator
-
+print(tf.__version__)
 backend.set_session(
     session=tf.Session(
         config=tf.ConfigProto(
@@ -96,11 +96,11 @@ model.compile(loss='categorical_crossentropy',
 history = model.fit_generator(
     train_generator,
     steps_per_epoch=train_generator.samples / train_generator.batch_size,
-    epochs=15,
+    epochs=1,
     validation_data=validation_generator,
     validation_steps=validation_generator.samples / validation_generator.batch_size,
     verbose=1,
     callbacks=[loss_checkpointer, early_stopping, tensorboard_callback])
 
 # Save the model
-model.save('../weights/a2_model_15_epochs.h5')
+model.save('../../weights/a2_model_15_epochs.h5')

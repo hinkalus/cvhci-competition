@@ -8,10 +8,11 @@ verify_ssl = true
 [packages]
 opencv-python = "*"
 numpy = "*"
-tensorflow-gpu = "<2.0"
+tensorflow-gpu = "==1.12.0"
 keras = "*"
 pillow = "*"
 scikit-image = "*"
+tqdm = "*"
 
 [requires]
 python_version = "3.6"
