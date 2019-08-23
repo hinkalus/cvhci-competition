@@ -1,9 +1,10 @@
+import tensorflow as tf
+
 from models.vgg16 import VGG16
 from keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard
-import tensorflow as tf
 from keras import models, layers, optimizers, backend
 from keras.preprocessing.image import ImageDataGenerator
-print(tf.__version__)
+
 backend.set_session(
     session=tf.Session(
         config=tf.ConfigProto(
